@@ -39,5 +39,3 @@ def compareGenes(file1, file2, sameGenesFile):
             file3.write(str(i) + "\n")
 
     file3.write("Number of Shared genes between brain and gonad tissue: " + str(len(sList)) + '\n')
-
-def compareOrganisms()
