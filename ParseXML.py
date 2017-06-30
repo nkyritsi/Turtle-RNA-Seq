@@ -14,23 +14,7 @@ def xml(xmlFile):
             if geneOrg not in oList:
                oList.append([geneOrg])
 
-    #print(len(oList))
-    oDict = {}
-
-    #split each element in the list with "['
-    for i in oList:
-        geneL = [i] ##need to make list of each line to split
-        for j in geneL:
-            parts = j.split("[")
-            uneditedOr = parts[1]
-            gene = parts[0]
-            organism = uneditedOr[:-1]
-
-            ##add genes and their organism hits to a dictionary
-            ###FIIIXX
-            oDict[organism] = []
-            if gene not in oDict[organism]:
-                oDict[organism].append(gene)
+    return oList
 
 
 
