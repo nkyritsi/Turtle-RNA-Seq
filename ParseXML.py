@@ -14,7 +14,7 @@ def xml(xmlFile):
             if geneOrg not in oList:
                oList.append([geneOrg])
 
-    print(oList)
+    #print(oList)
     
     newL = []
 
@@ -42,8 +42,22 @@ def xml(xmlFile):
             organism = i[0]
             finalL.append([organism, gene])
 
-    print(finalL)
+    #print(finalL)
+    
+    #build dictionary of organism and all its associated genes
+    oDict = {}
+    for i in finalL:
+        organism = i[0]
+        gene = i[1]
 
+        #if the organism is not in the dictionary, add it with a list to be able to add multiple genes
+        if oDict.get(organism) == None:
+            oDict[organism] = []
+            oDict[organism].append(gene)
+        else:
+            oDict[organism].append(gene)
+
+    return oDict
 
 
 ###make dictionary of organism: genes, so can count the number of values associated with organism
