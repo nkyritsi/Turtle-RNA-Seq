@@ -18,7 +18,7 @@ def xml(xmlFile):
     
     newL = []
 
-    #split each element in the list with "['
+    #split each element in the list with "[' to separate organism name from rest of gene
     for i in oList:
         #geneL = [i] ##need to make list of each line to split
         for j in i:
