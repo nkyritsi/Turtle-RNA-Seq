@@ -51,13 +51,27 @@ def xml(xmlFile):
         gene = i[1]
 
         #if the organism is not in the dictionary, add it with a list to be able to add multiple genes
-        if oDict.get(organism) == None:
-            oDict[organism] = []
-            oDict[organism].append(gene)
-        else:
+        if organism not in oDict:
+            oDict[organism] = [gene]
+        elif organism in oDict:
             oDict[organism].append(gene)
 
     return oDict
+
+def plotOrganisms(dictionary):
+    xVals = [] #list(dictionary.keys())
+    yVals = []
+
+    for key in dictionary:
+        xVals.append(key)
+        print(key)
+        numGenes = len(dictionary[key])
+        yVals.append(numGenes)
+        
+    ##Plot bar graph of organisms and number of genes hit        
+    barGraph = go.Bar(x= xVals, y=yVals, name= "# of Genes Hit for Each Organism in Gonad BLAST Results")
+    data = [barGraph]
+    py.iplot(data, filename= "NumGenes4OrganismGonadBlast")
 
 
 ###make dictionary of organism: genes, so can count the number of values associated with organism
