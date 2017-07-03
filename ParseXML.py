@@ -14,7 +14,35 @@ def xml(xmlFile):
             if geneOrg not in oList:
                oList.append([geneOrg])
 
-    return oList
+    print(oList)
+    
+    newL = []
+
+    #split each element in the list with "['
+    for i in oList:
+        #geneL = [i] ##need to make list of each line to split
+        for j in i:
+            parts = j.split("[")
+            #some genes do not have associated organism, so those will not be added to the list
+            if len(parts) > 1:
+                uneditedOr = parts[1]
+                gene = parts[0]
+                organism = uneditedOr[:-1]
+                newL.append([organism, gene])
+
+    #final, clean list of (orgnism, gene) pairs
+    finalL= []
+    for i in newL:
+        gene = i[1]
+        if len(i[0]) > 30:
+            stringOr = str(i[0])
+            organism = stringOr.split("]")[0]
+            finalL.append([organism, gene])
+        else:
+            organism = i[0]
+            finalL.append([organism, gene])
+
+    print(finalL)
 
 
 
