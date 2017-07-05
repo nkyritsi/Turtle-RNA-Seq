@@ -56,7 +56,7 @@ def xml(xmlFile):
         elif organism in oDict:
             oDict[organism].append(gene)
 
-    return oDict
+    return plotOrganisms(oDict):
 
 def plotOrganisms(dictionary):
     xVals = [] #list(dictionary.keys())
