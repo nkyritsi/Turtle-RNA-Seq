@@ -1,3 +1,6 @@
+#Reference:
+#http://www.gettinggeneticsdone.com/2014/05/r-volcano-plots-to-visualize-rnaseq-microarray.html
+
 inputFile <- "GonadVol.csv"
 
 ##read file into data frame
